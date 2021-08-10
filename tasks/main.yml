@@ -10,6 +10,12 @@
     name: "{{ kibana_package }}"
     state: "{{ kibana_package_state }}"
 
+- name: add kibana user to elasticsearch group
+  user:
+    name: kibana
+    groups: elasticsearch
+    append: yes
+
 - name: Ensure Kibana is started and enabled at boot.
   service:
     name: kibana
