@@ -141,21 +141,9 @@ elasticsearch.ssl.verificationMode: "{{ kibana_elasticsearch_ssl_verification_mo
 # translations.
 #i18n.defaultLocale: "en"
 
-{% if monitoring_enabled  %}
+{% if kibana_monitoring_enabled  %}
 monitoring.enabled: true
 {% else %}
 #monitoring.enabled: true
-{% endif %}
-
-{% if monitoring_enabled  %}
-monitoring.enabled: true
-{% else %}
-#monitoring.enabled: true
-{% endif %}
-
-{% if monitoring_kibana_collection_enabled  %}
-monitoring.kibana.collection.enabled: false
-{% else %}
-#monitoring.kibana.collection.enabled: false
 {% endif %}
 
