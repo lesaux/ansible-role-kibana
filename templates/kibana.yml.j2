@@ -147,3 +147,9 @@ monitoring.enabled: true
 #monitoring.enabled: true
 {% endif %}
 
+{% if kibana_xpack_encryptedSavedObjects_encryptionKey  %}
+xpack.encryptedSavedObjects.encryptionKey: "{{ kibana_xpack_encryptedSavedObjects_encryptionKey }}"
+{% else %}
+#xpack.encryptedSavedObjects.encryptionKey:
+{% endif %}
+
