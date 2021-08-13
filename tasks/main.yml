@@ -16,12 +16,6 @@
     groups: elasticsearch
     append: yes
 
-- name: Ensure Kibana is started and enabled at boot.
-  service:
-    name: kibana
-    state: "{{ kibana_service_state }}"
-    enabled: "{{ kibana_service_enabled }}"
-
 - name: Copy Kibana configuration.
   template:
     src: "{{ kibana_config_template }}"
@@ -31,5 +25,9 @@
     mode: 0644
   notify: restart kibana
 
-- name: restart kibana always
-  service: name=kibana state=restarted
+- name: Ensure Kibana is started and enabled at boot.
+  service:
+    name: kibana
+    state: "{{ kibana_service_state }}"
+    enabled: "{{ kibana_service_enabled }}"
+
