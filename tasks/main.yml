@@ -30,3 +30,6 @@
     group: root
     mode: 0644
   notify: restart kibana
+
+- name: restart kibana always
+  service: name=kibana state=restarted
