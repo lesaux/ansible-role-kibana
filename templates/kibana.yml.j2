@@ -162,3 +162,9 @@ xpack.encryptedSavedObjects.encryptionKey: "{{ kibana_xpack_encryptedSavedObject
 #xpack.encryptedSavedObjects.encryptionKey:
 {% endif %}
 
+{% if es_cluster_name  %}
+xpack.security.cookieName: "{{ es_cluster_name }}"
+{%else %}
+#xpack.security.cookieName:
+{% endif %}
+
