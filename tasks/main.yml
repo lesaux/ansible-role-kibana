@@ -24,7 +24,7 @@
   when: kibana_logging_dest != "stdout"
 
 - name: configure log rotate
-  file:
+  copy:
     path: /etc/logrotate.d/kibana
     state: file
     owner: root
