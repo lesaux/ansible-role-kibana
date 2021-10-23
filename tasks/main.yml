@@ -21,11 +21,11 @@
     path: "{{ kibana_loggin_dest | basename }}"
     state: directory
     owner: kibana
-  when: "{{ kibana_loggin_dest }}" =! "stdout"
+  when: "{{ kibana_loggin_dest }}" != "stdout"
 
 - name: configure log rotate
   file:
-    path: /etc/logrotate.conf.d/kibana
+    path: /etc/logrotate.d/kibana
     state: file
     owner: root
     content: |
@@ -37,7 +37,7 @@
         /bin/kill -HUP $(cat /var/run/kibana.pid 2>/dev/null) 2>/dev/null
         endscript
       }
-  when: {{ kibana_loggin_dest }} =! "stdout"
+  when: "{{ kibana_loggin_dest }}" != "stdout"
 
 - name: Copy Kibana configuration.
   template:
