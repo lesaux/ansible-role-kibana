@@ -18,10 +18,10 @@
 
 - name: configure log folder
   file:
-    path: "{{ kibana_loggin_dest | basename }}"
+    path: "{{ kibana_logging_dest | basename }}"
     state: directory
     owner: kibana
-  when: "{{ kibana_loggin_dest }} != stdout"
+  when: "{{ kibana_logging_dest }} != stdout"
 
 - name: configure log rotate
   file:
@@ -29,7 +29,7 @@
     state: file
     owner: root
     content: |
-      {{ kibana_loggin_dest | basename }} {
+      {{ kibana_logging_dest | basename }} {
         missingok
         notifempty
         sharedscripts
@@ -37,7 +37,7 @@
         /bin/kill -HUP $(cat /var/run/kibana.pid 2>/dev/null) 2>/dev/null
         endscript
       }
-  when: "{{ kibana_loggin_dest }} != stdout"
+  when: "{{ kibana_logging_dest }} != stdout"
 
 - name: Copy Kibana configuration.
   template:
