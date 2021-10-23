@@ -27,3 +27,5 @@ kibana_elasticsearch_ssl_key: ""
 kibana_elasticsearch_ssl_ca: ""
 
 kibana_elasticsearch_ssl_verification_mode: ""
+
+kibana_logging_dest: "stdout"

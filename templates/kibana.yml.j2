@@ -22,7 +22,16 @@ server.host: "{{ kibana_server_host }}"
 #server.maxPayloadBytes: 1048576
 
 # The Kibana server's name.  This is used for display purposes.
-#server.name: "your-hostname"
+{% if kibana_server_name  %}
+server.name: {{ kibana_server_name }}
+{%else %}
+#server.name: "server_name"
+%{ endif %}
+{% if kibana_server_uuid  %}
+server.uuid: {{ kibana_server_uuid }}
+{%else %}
+#server.uuid: "server_name"
+%{ endif %}
 
 # The URL of the Elasticsearch instance to use for all your queries.
 {% if kibana_version == "6.x" %}
@@ -118,10 +127,10 @@ elasticsearch.ssl.verificationMode: "{{ kibana_elasticsearch_ssl_verification_mo
 #elasticsearch.logQueries: false
 
 # Specifies the path where Kibana creates the process ID file.
-#pid.file: /var/run/kibana.pid
+pid.file: /var/run/kibana.pid
 
 # Enables you specify a file where Kibana stores log output.
-#logging.dest: stdout
+logging.dest: "{{ kibana_logging_dest }}"
 
 # Set the value of this setting to true to suppress all logging output.
 #logging.silent: false
