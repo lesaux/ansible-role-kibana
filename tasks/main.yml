@@ -18,10 +18,10 @@
 
 - name: configure log folder
   file:
-    path: {{ kibana_loggin_dest | basename }}
+    path: "{{ kibana_loggin_dest | basename }}"
     state: directory
     owner: kibana
-  when: {{ kibana_loggin_dest }} =! "stdout"
+  when: "{{ kibana_loggin_dest }}" =! "stdout"
 
 - name: configure log rotate
   file:
