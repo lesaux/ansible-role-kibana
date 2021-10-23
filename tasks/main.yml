@@ -18,7 +18,7 @@
 
 - name: configure log folder
   file:
-    path: "{{ kibana_logging_dest | basename }}"
+    path: "{{ kibana_logging_dest | dirname }}"
     state: directory
     owner: kibana
   when: kibana_logging_dest != "stdout"
