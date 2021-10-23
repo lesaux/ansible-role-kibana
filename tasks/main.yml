@@ -26,7 +26,6 @@
 - name: configure log rotate
   copy:
     dest: /etc/logrotate.d/kibana
-    state: file
     owner: root
     content: |
       "{{ kibana_logging_dest | basename }}" {
