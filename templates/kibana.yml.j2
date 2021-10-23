@@ -26,12 +26,12 @@ server.host: "{{ kibana_server_host }}"
 server.name: {{ kibana_server_name }}
 {%else %}
 #server.name: "server_name"
-%{ endif %}
+{% endif %}
 {% if kibana_server_uuid  %}
 server.uuid: {{ kibana_server_uuid }}
 {%else %}
 #server.uuid: "server_name"
-%{ endif %}
+{% endif %}
 
 # The URL of the Elasticsearch instance to use for all your queries.
 {% if kibana_version == "6.x" %}
