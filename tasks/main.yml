@@ -25,11 +25,11 @@
 
 - name: configure log rotate
   copy:
-    path: /etc/logrotate.d/kibana
+    dest: /etc/logrotate.d/kibana
     state: file
     owner: root
     content: |
-      {{ kibana_logging_dest | basename }} {
+      "{{ kibana_logging_dest | basename }}" {
         missingok
         notifempty
         sharedscripts
