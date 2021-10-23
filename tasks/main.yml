@@ -28,7 +28,7 @@
     dest: /etc/logrotate.d/kibana
     owner: root
     content: |
-      "{{ kibana_logging_dest | basename }}" {
+      "{{ kibana_logging_dest }}" {
         missingok
         notifempty
         sharedscripts
